@@ -1,0 +1,17 @@
+.main-table {
+    width: 640px;
+}
+
+#color-cell {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.save-button {
+    margin: 10px 0px 0px 0px;
+}
+
+.colorbutton {
+    width: 60px;
+}
