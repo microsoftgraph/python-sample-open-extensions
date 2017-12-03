@@ -1,5 +1,7 @@
 # Working with Graph open extensions in Python
 
+Many resources in Microsoft Graph support _open extensions_: untyped properties that can be attached to a resource instance. This sample shows how to read and write open extensions in Python.
+
 * [Installation](#installation)
 * [Running the sample](#running-the-sample)
 * [Helper functions](#helper-functions)
@@ -58,9 +60,7 @@ response = open_extension_write(client=MSGRAPH,
                                 settings={'color': selected_color})
 ```
 
-### Other types of open extensions
-
-This sample stores open extensions on the 'me' endpoint, to associate them with the currently authenticated user identity. The helper functions take an ```entity``` argument to specify the type of entity the extensions are stored on. The default is ```'me'```, but Graph supports open extensions on many other nodes as well. For example, you can associate open extension data with a device, a calendar event, or a mail message.
+The helper functions take an optional ```entity``` argument to specify the type of entity the extensions are stored on. The sample app uses the default 'me' entity, but Graph supports open extensions on many other nodes as well, including devices, calendar events, mail messages, and others.
 
 Here's a summary of the types of open extensions that are currently supported:
 
