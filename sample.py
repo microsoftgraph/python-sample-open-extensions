@@ -27,14 +27,15 @@ def homepage():
         user_identity = user_data['userPrincipalName']
         if selected_color:
             # user selected a color preference, so save it
-            response = extension_write(client=MSGRAPH,
-                                       ext_name=EXTENSION_NAME,
-                                       settings={'color': selected_color})
+            response = open_extension_write(client=MSGRAPH,
+                                            ext_name=EXTENSION_NAME,
+                                            settings={'color': selected_color})
             if not response.ok:
                 print(f'ERROR SAVING EXTENSION: {response}')
         else:
             # read user's color preference from their saved settings
-            settings = extension_read(client=MSGRAPH, ext_name=EXTENSION_NAME)
+            settings = open_extension_read(client=MSGRAPH,
+                                           ext_name=EXTENSION_NAME)
             selected_color = settings.get('color', '')
     else:
         # anonymous, no user logged in
@@ -64,7 +65,7 @@ def server_static(filepath):
     root_folder = os.path.abspath(os.path.dirname(__file__))
     return bottle.static_file(filepath, root=os.path.join(root_folder, 'static'))
 
-def extension_read(client, *, ext_name, entity='me'):
+def open_extension_read(client, *, ext_name, entity='me'):
     """Read an open extension from a Graph resource instance.
 
     client   = Graph connection object supporting .get(), .post(), .patch()
@@ -82,7 +83,7 @@ def extension_read(client, *, ext_name, entity='me'):
             return extension
     return {} # requested extension not found
 
-def extension_write(client, *, ext_name, entity='me', settings):
+def open_extension_write(client, *, ext_name, entity='me', settings):
     """Write an open extension to a Graph resource instance.
 
     client   = Graph connection object supporting .get(), .post(), .patch()
@@ -103,7 +104,7 @@ def extension_write(client, *, ext_name, entity='me', settings):
     extension_data.update(settings)
     request_data = json.dumps(extension_data)
 
-    if extension_read(client, ext_name=EXTENSION_NAME):
+    if open_extension_read(client, ext_name=EXTENSION_NAME):
         # extension exists, so PATCH to update its color setting
         return client.patch(entity + '/extensions/' + ext_name, data=request_data)
 
