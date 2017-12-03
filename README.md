@@ -74,7 +74,7 @@ Here's a summary of the types of open extensions that are currently supported:
 | message | users/{id or userPrincipalName}/messages/{id} | Mail.ReadWrite |
 | organization | organization/{id} | Directory.AccessAsUser.All |
 | personal contact | users/{id or userPrincipalName}/contacts/{id} | Contacts.ReadWrite |
-| user | 'me' or 'users/{id or userPrincipalName}' | Directory.AccessAsUser.All |
+| user | me or users/{id or userPrincipalName} | Directory.AccessAsUser.All |
 
 For more information about creating other types of open extensions, see [Create open extension](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/opentypeextension_post_opentypeextension).
 
