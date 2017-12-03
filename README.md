@@ -1,7 +1,5 @@
 # Working with Graph open extensions in Python
 
-/// intro, brief high-level description of open extensions
-
 * [Installation](#installation)
 * [Running the sample](#running-the-sample)
 * [Helper functions](#helper-functions)
