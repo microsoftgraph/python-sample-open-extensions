@@ -1,4 +1,10 @@
-# Working with Graph open extensions in Python
+# [ARCHIVED] Working with Graph open extensions in Python
+
+## IMPORTANT
+
+**This project is being archived. As part of the archival process, we're closing all open issues and pull requests.**
+
+**You can continue to use this sample "as-is", but it won't be maintained moving forward. We apologize for any inconvenience.**
 
 Many resources in Microsoft Graph support _open extensions_: untyped properties that can be attached to a resource instance. This sample shows how to read and write open extensions in Python.
 
